@@ -15,9 +15,5 @@
 			</array>
 		</dict>
 	</array>
-	<key>SUFeedURL</key>
-	<string>https://opendisk.app/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>269Oo3e4gnIe1gwQ8c9XZNoHZp1JAG4ofd3Kad6+V5A=</string>
 </dict>
 </plist>

@@ -1,23 +1,9 @@
 import SwiftUI
-#if canImport(Sparkle)
-import Sparkle
-#endif
 
 @main
 struct OpenDiskApp: App {
     @AppStorage("fda_show_prompt_at_startup") private var showPromptAtStartup = true
     @State private var hasCheckedFullDiskAccess = false
-
-    #if canImport(Sparkle)
-    private let updaterController: SPUStandardUpdaterController
-    private let checkForUpdatesViewModel: CheckForUpdatesViewModel
-
-    init() {
-        let controller = SoftwareUpdater.controller
-        updaterController = controller
-        checkForUpdatesViewModel = CheckForUpdatesViewModel(updater: controller.updater)
-    }
-    #endif
 
     var body: some Scene {
         WindowGroup {
@@ -29,14 +15,6 @@ struct OpenDiskApp: App {
         .commands {
             ToolbarCommands()
             TextSizeCommands()
-            #if canImport(Sparkle)
-            CommandGroup(after: .appInfo) {
-                CheckForUpdatesView(
-                    viewModel: checkForUpdatesViewModel,
-                    updater: updaterController.updater
-                )
-            }
-            #endif
         }
 
         Settings {
@@ -51,9 +29,6 @@ struct OpenDiskApp: App {
 
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(0.5))
-            #if canImport(Sparkle)
-            if MoveToApplications.promptIfNeeded() { return }
-            #endif
             guard showPromptAtStartup else { return }
             FullDiskAccess.promptIfNotGranted(
                 title: "Full Disk Access Required",

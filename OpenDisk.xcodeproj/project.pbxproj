@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A5E86EE3011253B0056F96E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 1A5E86ED3011253B0056F96E /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5E86EE3011253B0056F96E /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +145,6 @@
 				1AE9EBF02E67533B00E04C69 /* Sources */,
 				1AE9EBF12E67533B00E04C69 /* Frameworks */,
 				1AE9EBF22E67533B00E04C69 /* Resources */,
-				1A5E86F03011253B0056F96E /* Trim Sparkle */,
 			);
 			buildRules = (
 			);
@@ -158,7 +155,6 @@
 			);
 			name = OpenDisk;
 			packageProductDependencies = (
-				1A5E86ED3011253B0056F96E /* Sparkle */,
 			);
 			productName = OpenDisk;
 			productReference = 1AE9EBF42E67533B00E04C69 /* OpenDisk.app */;
@@ -268,7 +264,6 @@
 			mainGroup = 1AE9EBEB2E67533B00E04C69;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1A7D13B1300FF6A90016D506 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1AE9EBF52E67533B00E04C69 /* Products */;
@@ -314,27 +309,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1A5E86F03011253B0056F96E /* Trim Sparkle */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Trim Sparkle";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nFW=\"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework\"\n[ -d \"$FW\" ] || exit 0\nrm -rf \"$FW/Versions/B/XPCServices\" \"$FW/XPCServices\"\nfind \"$FW/Versions/B/Resources\" -maxdepth 1 -name \"*.lproj\" ! -name \"en.lproj\" ! -name \"Base.lproj\" -exec rm -rf {} +\nif [ \"${CODE_SIGNING_ALLOWED}\" = \"YES\" ] && [ -n \"${EXPANDED_CODE_SIGN_IDENTITY}\" ]; then\n  codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --preserve-metadata=identifier,entitlements,flags,runtime --timestamp=none \"$FW\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
+
 
 /* Begin PBXSourcesBuildPhase section */
 		1AE9EBF02E67533B00E04C69 /* Sources */ = {
@@ -527,7 +502,6 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Documents folder lets OpenDisk include it in your storage breakdown - for example, showing that your Documents folder takes up 10 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Downloads folder lets OpenDisk include it in your storage breakdown - for example, showing that your Downloads folder takes up 8 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to network volumes lets OpenDisk scan drives you connect over the network - for example, showing that a NAS share holds 500 GB of backups. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your photo library lets OpenDisk include it in your storage breakdown - for example, showing that your Photos library takes up 20 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never views, uploads, or modifies your photos.";
 				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to removable volumes lets OpenDisk scan external drives and USB disks you plug in - for example, showing that an external drive holds 200 GB of old projects. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +509,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ideals.OpenDisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lechaegg.OpenDisk.local;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -572,7 +546,6 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Documents folder lets OpenDisk include it in your storage breakdown - for example, showing that your Documents folder takes up 10 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Downloads folder lets OpenDisk include it in your storage breakdown - for example, showing that your Downloads folder takes up 8 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to network volumes lets OpenDisk scan drives you connect over the network - for example, showing that a NAS share holds 500 GB of backups. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your photo library lets OpenDisk include it in your storage breakdown - for example, showing that your Photos library takes up 20 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never views, uploads, or modifies your photos.";
 				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to removable volumes lets OpenDisk scan external drives and USB disks you plug in - for example, showing that an external drive holds 200 GB of old projects. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -581,7 +554,7 @@
 				);
 				LLVM_LTO = YES;
 				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ideals.OpenDisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lechaegg.OpenDisk.local;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -686,7 +659,6 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Documents folder lets OpenDisk include it in your storage breakdown - for example, showing that your Documents folder takes up 10 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Downloads folder lets OpenDisk include it in your storage breakdown - for example, showing that your Downloads folder takes up 8 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to network volumes lets OpenDisk scan drives you connect over the network - for example, showing that a NAS share holds 500 GB of backups. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your photo library lets OpenDisk include it in your storage breakdown - for example, showing that your Photos library takes up 20 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never views, uploads, or modifies your photos.";
 				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to removable volumes lets OpenDisk scan external drives and USB disks you plug in - for example, showing that an external drive holds 200 GB of old projects. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,7 +666,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ideals.OpenDisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lechaegg.OpenDisk.local;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -729,7 +701,6 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Documents folder lets OpenDisk include it in your storage breakdown - for example, showing that your Documents folder takes up 10 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your Downloads folder lets OpenDisk include it in your storage breakdown - for example, showing that your Downloads folder takes up 8 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to network volumes lets OpenDisk scan drives you connect over the network - for example, showing that a NAS share holds 500 GB of backups. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "OpenDisk measures how much disk space each folder on your Mac uses. Access to your photo library lets OpenDisk include it in your storage breakdown - for example, showing that your Photos library takes up 20 GB so you can decide what to clean up. OpenDisk only reads file names and sizes; it never views, uploads, or modifies your photos.";
 				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "OpenDisk measures how much disk space each folder uses. Access to removable volumes lets OpenDisk scan external drives and USB disks you plug in - for example, showing that an external drive holds 200 GB of old projects. OpenDisk only reads file names and sizes; it never uploads or modifies your files.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,7 +709,7 @@
 				);
 				LLVM_LTO = YES;
 				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ideals.OpenDisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lechaegg.OpenDisk.local;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -799,24 +770,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		1A7D13B1300FF6A90016D506 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
-/* Begin XCSwiftPackageProductDependency section */
-		1A5E86ED3011253B0056F96E /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A7D13B1300FF6A90016D506 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
+
+
 	};
 	rootObject = 1AE9EBEC2E67533B00E04C69 /* Project object */;
 }
